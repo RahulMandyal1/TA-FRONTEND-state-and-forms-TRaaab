@@ -3,6 +3,7 @@
     padding: 0px;
     box-sizing: border-box;
     font-family: 'Poppins',sans-serif;
+    transition: .3s all ease-in-out;
 }
 html{
     font-size: 62.5%;
@@ -43,6 +44,7 @@ main{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    position: relative;
 }
 .flex-45{
     flex : 0 1 45%; 
@@ -63,4 +65,19 @@ main{
 }
 .flex-45:hover .displaynone{
     display: inline-block;
+}
+
+.moviemodal{
+    position: absolute;
+    top: 5rem;
+    left: 5rem;
+    right: 5rem;
+    height: 100vh;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.moviemodal img{
+    width: 25rem;
+    height: 20rem;
+    object-fit: cover;
 }

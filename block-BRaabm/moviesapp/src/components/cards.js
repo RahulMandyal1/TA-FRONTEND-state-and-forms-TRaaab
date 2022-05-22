@@ -3,25 +3,7 @@ function Cards(props) {
   const cardsData = props.moviesData;
   return (
     <>
-      {cardsData.map((movie, index) => {
-        return (
-          <div className="flex-45" key={index}>
-            <div className="flex-row">
-              <h2>{movie.Title}</h2>
-              <span className="releasedate">{movie.Released}</span>
-            </div>
-            <img src={movie.Images[0]} />
-            <button
-              className="more-info displaynone"
-              onClick={handleClick}
-              id={index}
-            >
-              more info
-            </button>
-          </div>
-        );
-      })}
-    </>
+         </>
   );
 }
 
