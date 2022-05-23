@@ -1,0 +1,80 @@
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+html{
+    font-size: 62.5%;
+}
+.flex-row{
+    display: flex;
+    justify-content:space-between;
+    align-items: flex-start;
+}
+
+header{
+    padding: 2rem;
+    background-color: #333;
+    text-align: center;
+    color: #fff;
+    font-size: 1.8rem;
+}
+section{
+    padding: 2% 9%;
+}
+
+section h2{
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 800;
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+    grid-gap: 5rem;
+    margin-top: 4rem;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    border: .3rem solid salmon;
+    padding: 2rem;
+    border-radius: .6rem;
+}
+form input , label{
+    width: 100%;
+}
+form input{
+    padding: .6rem;
+    border: .1rem solid #dddddd;
+}
+.form-group{
+    margin:0 0  1rem 0;
+}
+.form-group label{
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: .5rem;
+}
+
+#datachange label{
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom:2rem;
+    color: tomato;
+}
+form{
+    position: relative;
+    padding: 3rem 2rem 2rem 2rem;
+}
+legend{
+    position: absolute;
+    top: -2rem;
+    background-color: #333;
+    padding: .8rem;
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
