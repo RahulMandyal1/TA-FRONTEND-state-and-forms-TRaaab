@@ -1,0 +1,148 @@
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+html{
+    font-size: 62.5%;
+}
+.flex{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+section{
+    width: 100%;
+    min-height: 100vh;
+    padding: 5% 9%;
+    display: flex;
+    justify-content : center;
+}
+form{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    
+    /* border: .3rem solid #dddd; */
+}
+
+.imagecontainer{
+    flex: 0 1 30%;
+    height: 100%;
+    background: url('../welcome.jpg');
+    object-fit: cover;
+    background-size: cover;
+    border-top-left-radius: 2rem ;
+    border-bottom-left-radius: 2rem;
+}
+
+.form-container{
+    flex : 0 1 70%;
+    padding: 2rem;
+    border: .1rem solid #dddddd;
+
+}
+.form-container header{
+    display: flex;
+    justify-content: space-between;
+
+}
+.form-container header li{
+    list-style-type: none;
+    padding:.6rem 1.2rem;
+    border-radius: .1rem;
+    background-color: #f5f5f5;
+    color: #333;
+    display: inline-block;
+    font-weight: 600;
+}
+.form-container header div{
+    flex:  0 1 20%;
+    background-color: transparent;
+}
+.form-container header span{
+    display: inline-block;
+    margin:  0 0 0 1rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+#active{
+    background-color: #0C75FF;
+    color: #fff;
+}
+.form-group input , label{
+    display: inline-block;
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem ;
+}
+
+.form-group input{
+    width: 100%;
+}
+
+.flex-row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-group input ,textarea{
+    padding: .6rem;
+    border: .1rem solid #dddddd;
+}
+.form-group label{
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: .5rem 0 ;
+}
+
+.flex-row .form-group{
+    flex  :  0 1 48%;
+}
+
+.step-container{
+    margin: 4rem 0 ;
+}
+button{
+    font-size: 1.2rem;
+    border: none;
+    background-color: #0C75FF;
+    color: #fff;
+    font-weight: 500;
+    padding: .8rem 1.6rem;
+}
+.tertiary-btn{
+    background-color: transparent;
+    color: #333;
+}
+.button-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 3rem 0 ;
+}
+
+.form-checkbox {
+    flex-direction: row;
+    align-items: center;
+}
+.form-checkbox input {
+    flex : 0 1 5%;
+}
+.form-checkbox  label{
+    margin: 0 1rem;
+}
+.userchoices{
+    margin-top: 3rem;
+}
+
+.error{
+    color: rgb(207, 34, 34);
+}
+
+.error-message{
+    color: rgb(207, 34, 34);
+}
