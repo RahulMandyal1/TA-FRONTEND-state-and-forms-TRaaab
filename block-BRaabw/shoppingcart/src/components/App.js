@@ -4,7 +4,6 @@ import Aside from "./aside";
 import data from "../data";
 import Cart from "./Cart";
 import Header from "./header";
-let allproducts = [...data.products];
 let productsData = [];
 class App extends Component {
   constructor() {
@@ -36,7 +35,7 @@ class App extends Component {
 
     let products = [];
     let value = event.target.innerText;
-    let allFilters = {...this.state.sizeFilters };
+    let allFilters = { ...this.state.sizeFilters };
     allFilters[value] = !this.state.sizeFilters[value];
     this.setState({
       sizeFilters: allFilters,
@@ -89,7 +88,6 @@ class App extends Component {
   };
 
   // method to get all the user cart product
-
   getCartProduct = () => {
     let allproductsId = this.state.userCart.productsId;
     let allCartProducts = data.products.filter((product) => {
@@ -102,18 +100,22 @@ class App extends Component {
 
   filterbyprice = ({ target }) => {
     // change displayallProdcts  to false to show the filtered products
+    this.setState({
+      displayallProducts: false,
+    });
+
     let { value } = target;
+    let productsdata = [...data.products];
     if (value === "increment") {
-      data = data.sort((a, b) => b.price - a.price);
+      productsData = productsdata.sort((a, b) => b.price - a.price);
     }
     if (value === "decrement") {
-      data = data.sort((a, b) => a.price - b.price);
+      productsData = productsdata.sort((a, b) => a.price - b.price);
     }
   };
   render() {
     let userCart = this.getCartProduct();
     let totalAmount = 0;
-    console.log("this is the filtered data ", productsData);
     return (
       <>
         <section className="mainsection">
@@ -126,11 +128,13 @@ class App extends Component {
           <div className="wrapper">
             <Header
               filterbyprice={this.filterbyprice}
-              totalproducts={productsData}
+              totalproducts={
+                this.state.displayallProducts ? data.products : productsData
+              }
             />
             <div className="products-container">
               <Productcard
-                productData={
+                productsData={
                   this.state.displayallProducts === true
                     ? data.products
                     : productsData
