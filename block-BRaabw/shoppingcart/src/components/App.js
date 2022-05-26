@@ -3,8 +3,9 @@ import Productcard from "./Productcard";
 import Aside from "./aside";
 import data from "../data";
 import Cart from "./Cart";
+import Header from "./header";
+let allproducts = [...data.products];
 let productsData = [];
-let cartcontainer = document.querySelector(".hideit");
 class App extends Component {
   constructor() {
     super();
@@ -35,7 +36,7 @@ class App extends Component {
 
     let products = [];
     let value = event.target.innerText;
-    let allFilters = { ...this.state.sizeFilters };
+    let allFilters = {...this.state.sizeFilters };
     allFilters[value] = !this.state.sizeFilters[value];
     this.setState({
       sizeFilters: allFilters,
@@ -99,13 +100,20 @@ class App extends Component {
     return allCartProducts;
   };
 
-  userCart = (event) => {
-    console.log(" this is the user cart to show");
-    console.log(cartcontainer);
+  filterbyprice = ({ target }) => {
+    // change displayallProdcts  to false to show the filtered products
+    let { value } = target;
+    if (value === "increment") {
+      data = data.sort((a, b) => b.price - a.price);
+    }
+    if (value === "decrement") {
+      data = data.sort((a, b) => a.price - b.price);
+    }
   };
   render() {
     let userCart = this.getCartProduct();
     let totalAmount = 0;
+    console.log("this is the filtered data ", productsData);
     return (
       <>
         <section className="mainsection">
@@ -115,24 +123,28 @@ class App extends Component {
             handleSizeFilter={this.handleSizeFilter}
           />
 
-          {/* // all the products container  */}
-
-          <div className="products-container">
-            <Productcard
-              productData={
-                this.state.displayallProducts === true
-                  ? data.products
-                  : productsData
-              }
-              addproductToCart={this.addproductToCart}
+          <div className="wrapper">
+            <Header
+              filterbyprice={this.filterbyprice}
+              totalproducts={productsData}
             />
+            <div className="products-container">
+              <Productcard
+                productData={
+                  this.state.displayallProducts === true
+                    ? data.products
+                    : productsData
+                }
+                addproductToCart={this.addproductToCart}
+              />
 
-            {/* // user cart  */}
-            <Cart
-              userCart={userCart}
-              totalAmount={totalAmount}
-              removeProductFromCart={this.removeProductFromCart}
-            />
+              {/* // user cart  */}
+              <Cart
+                userCart={userCart}
+                totalAmount={totalAmount}
+                removeProductFromCart={this.removeProductFromCart}
+              />
+            </div>
           </div>
         </section>
       </>
