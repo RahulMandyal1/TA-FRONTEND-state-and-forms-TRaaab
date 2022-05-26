@@ -1,7 +1,7 @@
 import React from "react";
 export default function Productcard(props) {
-  let { productData, addproductToCart } = props;
-  if (productData.length === 0) {
+  let { productsData, addproductToCart } = props;
+  if (productsData.length === 0) {
     return (
       <div className="nomoreproducts">
         <h2> No Products </h2>
@@ -13,7 +13,7 @@ export default function Productcard(props) {
   }
   return (
     <>
-      {productData.map((product) => {
+      {productsData.map((product) => {
         return (
           <div className="product-card" key={product.id}>
             <figure className="product-image">

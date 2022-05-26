@@ -6,11 +6,12 @@ function Header(props) {
     <>
       <header className="price-filter-container">
         <div className="product-count">
-          <h3>{totalproducts} product found</h3>
+          <h3>{totalproducts.length} product found</h3>
         </div>
         <div className="price-filters">
           <select
             className="drop-down-container"
+            value="filter by price"
             name="priceoption"
             onChange={ filterbyprice}
           >
