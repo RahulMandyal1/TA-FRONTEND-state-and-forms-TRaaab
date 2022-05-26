@@ -49,7 +49,7 @@ class Cart extends Component {
                     ❎
                   </button>
                   <h4>{product.title}</h4>
-                  <p>{product.price}</p>
+                  <p>{product.price + product.currencyFormat}</p>
                 </div>
               </div>
             );
@@ -58,6 +58,8 @@ class Cart extends Component {
             <h4>subtotal : </h4>
             <span>{totalAmount}</span>
           </div>
+
+          <button className="checkout">checkout</button>
         </div>
       );
     }
