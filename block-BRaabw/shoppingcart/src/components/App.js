@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Productcard from "./Productcard";
 import Aside from "./aside";
 import data from "../data";
+import Cart from "./Cart";
 let productsData = [];
 let cartcontainer = document.querySelector(".hideit");
 class App extends Component {
@@ -98,20 +99,24 @@ class App extends Component {
     return allCartProducts;
   };
 
-  userCart=(event)=>{
-      console.log(" this is the user cart to show");
-      console.log(cartcontainer);
-  }
+  userCart = (event) => {
+    console.log(" this is the user cart to show");
+    console.log(cartcontainer);
+  };
   render() {
     let userCart = this.getCartProduct();
     let totalAmount = 0;
     return (
       <>
         <section className="mainsection">
+          {/* all the filters  */}
           <Aside
             activeButton={this.activeButton}
             handleSizeFilter={this.handleSizeFilter}
           />
+
+          {/* // all the products container  */}
+
           <div className="products-container">
             <Productcard
               productData={
@@ -121,36 +126,14 @@ class App extends Component {
               }
               addproductToCart={this.addproductToCart}
             />
-          </div>
 
-          <div className="cartopener" onClick={this.userCart}>
-              <img src="static/bag-icon.png"></img>
+            {/* // user cart  */}
+            <Cart
+              userCart={userCart}
+              totalAmount={totalAmount}
+              removeProductFromCart={this.removeProductFromCart}
+            />
           </div>
-
-          <div className="usercart-container hideit">
-              {userCart.map((product) => {
-                totalAmount += product.price;
-                return (
-                  <div className="cart-product">
-                    <img src={"/static/products/" + product.sku + "_2.jpg"} />
-                    <div className="product-information">
-                      <button
-                        id={product.id}
-                        onClick={this.removeProductFromCart}
-                      >
-                        ❎
-                      </button>
-                      <h4>{product.title}</h4>
-                      <p>{product.price}</p>
-                    </div>
-                  </div>
-                );
-              })}
-              <div className="total-amount-container flex-row">
-                <h4>subtotal : </h4>
-                <span>{totalAmount}</span>
-              </div>
-            </div>
         </section>
       </>
     );

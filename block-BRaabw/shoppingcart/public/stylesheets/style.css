@@ -147,10 +147,44 @@ aside button{
     position: absolute;
     top:  0 ;
     right: 0;
-    background-color: black;
-    gap: 2rem;
+    height: auto;
+    width: 300px;
+    padding: 2rem;
+    background-color: #333;
 }
 
+.usercart-container header{
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 1rem;
+    border-bottom: .1rem solid grey;
+}
+.usercart-container header span{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-left:  1rem ;
+}
+.usercart-container header figure{
+    position: relative;
+    margin-right: 1rem;
+}
+#product-count{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -1rem ;
+    right: -2rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: #f9b908;
+    font-size :.8rem;
+    font-weight: 400;
+}
 .product-information{
     display: flex;
     flex-direction:column ;
@@ -170,17 +204,15 @@ aside button{
     color: #fff;
     font-weight: 700;
 }
-
-.hideit{
-    display: none;
-}
-.displayit{
-    display: inline-block;
-}
 .cartopener{
     position: absolute;
     top: 0 ;
     right: 0;
     background-color: #000;
-    padding: 1rem;
+    padding: 2rem;
+    z-index: 1000;
+}
+.cartopener #product-count{
+    top: 1rem;
+    right: 1rem;
 }
