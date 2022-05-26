@@ -218,3 +218,16 @@ aside button{
     top: 1rem;
     right: 1rem;
 }
+
+.checkout{
+    display: block;
+    width: 100%;
+    background-color: transparent;
+    color: #fff;
+    border: .1rem solid #ddd;
+    padding: .8rem;
+    text-align: center;
+}
+.cart-product{
+    max-height: 8rem;
+}
